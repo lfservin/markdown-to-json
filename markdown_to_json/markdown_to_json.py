@@ -140,7 +140,7 @@ class Renderer(object):
 
     def _render_generic_block(self, block):
         if hasattr(block, 'strings') and len(block.strings) > 0:
-            return "\n".join(block.strings)
+            return " ".join(block.strings)
         if len(block.children) > 0:
             return [self._render_block(b) for b in block.children]
 
