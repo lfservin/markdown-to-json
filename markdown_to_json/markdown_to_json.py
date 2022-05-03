@@ -63,7 +63,7 @@ class CMarkASTNester(object):
             return block.t == 'ATXHeader' and block.level == heading_level
 
         if not any((matches_heading(b) for b in blocks)):
-            self._ensure_list_singleton(blocks)
+            #self._ensure_list_singleton(blocks)
             return blocks
 
         splitted = dictify_list_by(blocks, matches_heading)
@@ -114,15 +114,22 @@ class Renderer(object):
             ])
         return out
 
-    def _valuify(self, cm_vals):
+    def _valuify(self, cm_vals):        
         if hasattr(cm_vals, 'items'):
             return self.stringify_dict(cm_vals)
-        if len(cm_vals) == 0:
+        elements = len(cm_vals)
+        if elements == 0:
             return ''
-        first = cm_vals[0]
-        if first.t == 'List':
-            return self._render_List(first)
-        return "\n\n".join([self._render_block(v) for v in cm_vals])
+        key = 0
+        out = OrderedDict()
+        for v in cm_vals:
+            if v.t == 'List':
+                value = self._render_List(v)
+            else:
+                value = self._render_block(v)
+            out[key] = value
+            key = key + 1
+        return out
 
     def _render_block(self, block):
         method_name = "_render_{0}".format(block.t)
