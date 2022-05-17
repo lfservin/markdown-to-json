@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple tool to convert Markdown (technically CommonMark) data into JSON. It uses headings as JSON keys, and the stuff following headings as values. Lists are turned into arrays. Higher heading values yield nested JSON keys.
+A simple tool to convert Markdown (technically CommonMark) data into JSON. It uses headings as JSON keys, and the stuff following headings as values in an ordered Dict. Lists are turned into arrays and added as the value to a key in an ordered Dict. Higher heading values yield nested JSON keys.
 
 ## Why the hell would I want to do this?
 
