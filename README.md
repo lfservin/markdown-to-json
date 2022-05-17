@@ -16,13 +16,13 @@ As a point of reference, this tool was built to allow easy(-ish) creation of dat
 
 Easy method:
 
-```
+```bash
 pip install markdown-to-json
 ```
 
 Also easy method:
 
-```
+```bash
 git clone https://github.com/njvack/markdown-to-json.git
 cd markdown_to_json
 ./setup.py install
@@ -34,7 +34,7 @@ You'll get one executable:
 
 ## `md_to_json`
 
-```
+```bash
 Translate markdown into JSON.
 
 Usage:
@@ -55,7 +55,7 @@ This translates a markdown document into JSON as described in the example below.
 
 The markdown:
 
-```
+```markdown
 # Description
 
 This is an example file
@@ -80,7 +80,7 @@ Here's something about Version 2
 
 will translate to the JSON:
 
-```
+```json
 {
   "Description": "This is an example file",
   "Authors": ["Nate Vack", "Vendor Packages", ["docopt", "CommonMark-py"]],
